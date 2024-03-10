@@ -63,6 +63,7 @@
 <ul>
 <li><code>hexo init</code>:初始化博客。</li>
 <li><code>hexo s</code>: 提供<mark class="hl-label blue">“预览”</mark> 功能。启动一个本地的 Web 服务器（<code>http://localhost:4000/</code>），用于预览你在 Hexo 项目中编辑的内容，包括文章、页面和主题的更改。注意：<code>hexo s</code>启动后可以监视内容变化，根据内容的变化进行实时更新，不用退出再重新启动。</li>
+<li><code>hexo clean</code>: 提供<mark class="hl-label blue">“清空回收站”</mark> 功能，清除缓存文件以及已生成的静态文件，例如使不用的tag不再出现在tag栏里（注意：需要先终止hexo s）</li>
 <li><code>hexo g</code>: 提供<mark class="hl-label blue">“转化”</mark> 功能。将Markdown格式的文章（博客为.md格式文件）以及配置文件转化为HTML文件，并应用主题，生成静态文件并进行保存，便于后续发布。</li>
 <li><code>hexo d</code>: 提供<mark class="hl-label blue">“部署”</mark> 功能。该命令用于将博客内容部署到远程服务器或者其他托管服务上。</li>
 <li><code>hexo new post 博客名</code>： 创建一篇新博客。</li>
@@ -79,6 +80,74 @@
       <tags>
         <tag>Hexo</tag>
         <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++的一些题型归类</title>
+    <url>/2024/03/10/C++%E7%9A%84%E4%B8%80%E4%BA%9B%E9%A2%98%E5%9E%8B%E5%BD%92%E7%B1%BB/</url>
+    <content><![CDATA[<h2 id="数据结构">数据结构</h2>
+<h3 id="字符串">字符串</h3>
+<p><strong>1.模式匹配问题</strong><br>
+解法：</p>
+<ul>
+<li>遍历子串，与模式串进行比对，讨论模式串index的变化情况（index++，index+=0，index+=2）   典例：matrix-week2-课后2</li>
+</ul>
+]]></content>
+      <categories>
+        <category>programing</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++对懒人很友好</title>
+    <url>/2024/03/10/C-%E5%AF%B9%E6%87%92%E4%BA%BA%E5%BE%88%E5%8F%8B%E5%A5%BD/</url>
+    <content><![CDATA[<h2 id="丰富的函数库">丰富的函数库</h2>
+<h3 id="iomanip">iomanip</h3>
+<ul>
+<li><code>cout&lt;&lt;setprecision(n)&lt;&lt;a</code>: 控制a显示n个有效数字位数（不显示末尾的零）</li>
+<li><code>cout&lt;&lt;showpoint&lt;&lt;setprecision(n)&lt;&lt;a</code>: 控制a显示n个有效数字位数（强制显示末尾的0）</li>
+<li><code>cout&lt;&lt;fixed&lt;&lt;setprecision(n)&lt;&lt;a</code>: 控制a小数点后保留n位小数（强制显示末尾的0）</li>
+<li><code>cout&lt;&lt;scientific&lt;&lt;setprecision(n)&lt;&lt;a</code>: 将a转化为保留n位小数（精度为n）的科学计数法</li>
+<li><code>cout&lt;&lt;oct&lt;&lt;a</code>: 将a转化为八进制形式</li>
+<li><code>cout&lt;&lt;hex&lt;&lt;a</code>: 将a转化为十六进制形式</li>
+<li><code>cout&lt;&lt;left&lt;&lt;a</code>: 控制a为左对齐输出</li>
+<li><code>cout&lt;&lt;setw(n)&lt;&lt;a</code>: 设定a占n个数字的宽度</li>
+</ul>
+<hr>
+<h3 id="string">string</h3>
+<ul>
+<li><code>s.length()</code>: 计算s字符串的长度（含空格）</li>
+<li><code>s.substr(index,num)</code>: 从s下标为index处开始，提取含num个字符的子串，若无第二个参数，则一直提取到结尾</li>
+<li><code>s.find(str)</code>: 在s中寻找str字符串</li>
+<li><code>s.find(str,index)</code>: 在s中从index处开始查找子串str</li>
+<li><code>s.find(c)</code>: 在s中找c字符</li>
+<li><code>s.rfind(str)</code>: 倒着找str</li>
+<li><code>s.append(str)</code>: 在s末尾添加str字符串</li>
+<li><code>s.append(num,c)</code>: 在s末尾添加num个c字符</li>
+<li><code>s.insert(index,str)</code>: 在s的index处插入str字符串</li>
+<li><code>s.insert(index,num,c)</code>: 在s的index处插入num个c字符</li>
+<li><code>s.erase(index,num)</code>: 从s的index开始，删除num个字符</li>
+<li><code>s.clear</code>: 清空s</li>
+<li><code>s.copy(&amp;str[i],num,index)</code>: 从s的index处开始，复制num个字符替换从str[i]开始的字符串，不会完全替换掉str串，只会替换指定位置的指定字符个数</li>
+<li><code>s.compare(str)</code>: 将s与str按照ascll码表进行对比，返回负数，0，正数</li>
+<li><code>s.compare(index,num,str)</code>: 从s的index处开始选取长度为num的子串与str进行对比，返回负数，0，正数</li>
+<li><code>s.swap(str)</code>: 交换s与str内容</li>
+</ul>
+<hr>
+<h3 id="cctype">cctype</h3>
+<ul>
+<li><code>islower(c)</code>: 判断字符是否为小写</li>
+<li><code>toupper(c)</code>: 将小写字符变为大写</li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>programing</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -208,74 +277,6 @@ M1001 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
       </categories>
       <tags>
         <tag>math</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++的一些题型归类</title>
-    <url>/2024/03/10/C++%E7%9A%84%E4%B8%80%E4%BA%9B%E9%A2%98%E5%9E%8B%E5%BD%92%E7%B1%BB/</url>
-    <content><![CDATA[<h2 id="数据结构">数据结构</h2>
-<h3 id="字符串">字符串</h3>
-<p><strong>1.模式匹配问题</strong><br>
-解法：</p>
-<ul>
-<li>遍历子串，与模式串进行比对，讨论模式串index的变化情况（index++，index+=0，index+=2）   典例：matrix-week2-课后2</li>
-</ul>
-]]></content>
-      <categories>
-        <category>programing</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++对懒人很友好</title>
-    <url>/2024/03/10/C-%E5%AF%B9%E6%87%92%E4%BA%BA%E5%BE%88%E5%8F%8B%E5%A5%BD/</url>
-    <content><![CDATA[<h2 id="丰富的函数库">丰富的函数库</h2>
-<h3 id="iomanip">iomanip</h3>
-<ul>
-<li><code>cout&lt;&lt;setprecision(n)&lt;&lt;a</code>: 控制a显示n个有效数字位数（不显示末尾的零）</li>
-<li><code>cout&lt;&lt;showpoint&lt;&lt;setprecision(n)&lt;&lt;a</code>: 控制a显示n个有效数字位数（强制显示末尾的0）</li>
-<li><code>cout&lt;&lt;fixed&lt;&lt;setprecision(n)&lt;&lt;a</code>: 控制a小数点后保留n位小数（强制显示末尾的0）</li>
-<li><code>cout&lt;&lt;scientific&lt;&lt;setprecision(n)&lt;&lt;a</code>: 将a转化为保留n位小数（精度为n）的科学计数法</li>
-<li><code>cout&lt;&lt;oct&lt;&lt;a</code>: 将a转化为八进制形式</li>
-<li><code>cout&lt;&lt;hex&lt;&lt;a</code>: 将a转化为十六进制形式</li>
-<li><code>cout&lt;&lt;left&lt;&lt;a</code>: 控制a为左对齐输出</li>
-<li><code>cout&lt;&lt;setw(n)&lt;&lt;a</code>: 设定a占n个数字的宽度</li>
-</ul>
-<hr>
-<h3 id="string">string</h3>
-<ul>
-<li><code>s.length()</code>: 计算s字符串的长度（含空格）</li>
-<li><code>s.substr(index,num)</code>: 从s下标为index处开始，提取含num个字符的子串，若无第二个参数，则一直提取到结尾</li>
-<li><code>s.find(str)</code>: 在s中寻找str字符串</li>
-<li><code>s.find(str,index)</code>: 在s中从index处开始查找子串str</li>
-<li><code>s.find(c)</code>: 在s中找c字符</li>
-<li><code>s.rfind(str)</code>: 倒着找str</li>
-<li><code>s.append(str)</code>: 在s末尾添加str字符串</li>
-<li><code>s.append(num,c)</code>: 在s末尾添加num个c字符</li>
-<li><code>s.insert(index,str)</code>: 在s的index处插入str字符串</li>
-<li><code>s.insert(index,num,c)</code>: 在s的index处插入num个c字符</li>
-<li><code>s.erase(index,num)</code>: 从s的index开始，删除num个字符</li>
-<li><code>s.clear</code>: 清空s</li>
-<li><code>s.copy(&amp;str[i],num,index)</code>: 从s的index处开始，复制num个字符替换从str[i]开始的字符串，不会完全替换掉str串，只会替换指定位置的指定字符个数</li>
-<li><code>s.compare(str)</code>: 将s与str按照ascll码表进行对比，返回负数，0，正数</li>
-<li><code>s.compare(index,num,str)</code>: 从s的index处开始选取长度为num的子串与str进行对比，返回负数，0，正数</li>
-<li><code>s.swap(str)</code>: 交换s与str内容</li>
-</ul>
-<hr>
-<h3 id="cctype">cctype</h3>
-<ul>
-<li><code>islower(c)</code>: 判断字符是否为小写</li>
-<li><code>toupper(c)</code>: 将小写字符变为大写</li>
-</ul>
-<hr>
-]]></content>
-      <categories>
-        <category>programing</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
       </tags>
   </entry>
 </search>
